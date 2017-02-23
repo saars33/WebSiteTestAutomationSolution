@@ -1,0 +1,29 @@
+﻿TEST Automation plan:
+
+*Create a sample VSTS test class
+
+*Create scratch initialize,cleanup and Testmethod in that class
+
+Do below with the firefox browser only
+	*Implement navigation to the icehome page (ft)
+	*Implement navigation to the icehome page's following objects
+		Login link
+		elements in the login popup
+		
+		
+	
+	Implement the manipulation excercises (watch videos in udemy)
+	
+	Implement the syncronization excercises
+	
+	upload code to GIT
+	
+Start framework development and perform refactoring on the followin
+	driver managers
+	base classes
+	configuration
+	page objects
+	logging
+	dump hardcoded data to excel and implement excel helpers
+	
+C:\Users\ARVIND\selenium_resources_go_here	
