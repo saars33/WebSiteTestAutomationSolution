@@ -7,8 +7,8 @@
 Do below with the firefox browser only
 	*Implement navigation to the icehome page (ft)
 	*Implement navigation to the icehome page's following objects
-		Login link
-		elements in the login popup
+		*Login link
+		*elements in the login popup
 		
 		
 	
