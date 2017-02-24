@@ -54,9 +54,9 @@ namespace TheICEWebSiteTests
             IReadOnlyCollection<IWebElement> loginOptionsList = loginSelectBoxWebElement.FindElements(By.TagName("a"));
 
             //foreach (var webElement in loginOptionsList)
-            for (int i = 7; i < loginOptionsList.Count; i++)
+            for (int i = 0; i < loginOptionsList.Count; i++)
             {
-                //Thread.Sleep(1000);
+                
                 loginSelectBoxWebElement = webDriver.FindElement(By.ClassName("selectbox-options"));
                 IWebElement webElement = loginSelectBoxWebElement.FindElements(By.TagName("a"))[i];
                 string webElementText = webElement.Text;
@@ -64,11 +64,9 @@ namespace TheICEWebSiteTests
                 javaScriptExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", webElement);
                 //webElement = webDriver.FindElement(By.LinkText(webElementText));
 
-                Thread.Sleep(2000);
+                
                 webElement.Click();
-
-                //Thread.Sleep(new TimeSpan(0, 0, 1));
-
+                
                 IReadOnlyCollection<IWebElement> userNameCollection =
                     webDriver.FindElements(By.XPath("//input[(@type='text') and (@placeholder='Username')]"));
                 if (userNameCollection.Count > 0)
@@ -83,7 +81,7 @@ namespace TheICEWebSiteTests
                     passwordElement.SendKeys("blahblah");
                 }
 
-                //Thread.Sleep(2000);
+                
                 selectAnOptionComboElement.Click();
                 
 
