@@ -7,6 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 
 
 namespace TheICEWebSiteTests
@@ -37,6 +38,9 @@ namespace TheICEWebSiteTests
                         IWebDriver webDriver = new ChromeDriver(chromeDriverService);*/
 
             webDriver.Navigate().GoToUrl("http://ft.theice.com");
+
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(3)).Until(ExpectedConditions.TitleIs("ICE"));
+
             //webDriver.Close();
 
             IWebElement loginWebElement = webDriver.FindElement(By.XPath("//div/ul[2]/li[1]/a"));
