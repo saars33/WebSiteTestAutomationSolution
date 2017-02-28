@@ -15,33 +15,34 @@ namespace TheICEWebSiteTests
     public class ScratchPadTests
     {
 /*        [TestInitialize]
-        public void MyScratchTestInitializeeMethod()
-        {
-            
-            
-        }*/
+                        public void MyScratchTestInitializeeMethod()
+                        {
+                            
+                            
+                        }*/
 
         [TestMethod]
         public void MyFirstScratchTestMethod()
         {
-            FirefoxDriverService chromeDriverService =
-                FirefoxDriverService.CreateDefaultService(@"C:\Users\ARVIND\selenium_resources_go_here\");
-            IWebDriver webDriver = new FirefoxDriver(chromeDriverService);
+/*                        FirefoxDriverService ffDriverService =
+                                                    FirefoxDriverService.CreateDefaultService(@"C:\Users\Public\AutomationSpecificFolders\sel_resources_go_here");*/
+                        //IWebDriver webDriver = new FirefoxDriver();
 
-/*
-            ChromeDriverService chromeDriverService =
-                ChromeDriverService.CreateDefaultService(@"C:\Users\ARVIND\selenium_resources_go_here\");
-            IWebDriver webDriver = new ChromeDriver(chromeDriverService);
-*/
+            FirefoxBinary firefoxBinary=new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
+            IWebDriver webDriver = new FirefoxDriver(firefoxBinary,new FirefoxProfile());
 
+            /*            ChromeDriverService chromeDriverService =
+                            ChromeDriverService.CreateDefaultService(
+                                @"C:\Users\Public\AutomationSpecificFolders\sel_resources_go_here");
+                        IWebDriver webDriver = new ChromeDriver(chromeDriverService);*/
 
             webDriver.Navigate().GoToUrl("http://ft.theice.com");
             //webDriver.Close();
 
             IWebElement loginWebElement = webDriver.FindElement(By.XPath("//div/ul[2]/li[1]/a"));
 /*            Actions actions = new Actions(webDriver);
-            actions.MoveToElement(loginWebElement);
-            actions.Perform();*/
+                                                actions.MoveToElement(loginWebElement);
+                                                actions.Perform();*/
             loginWebElement.Click();
 
             //IWebElement selectAnOptionComboElement = webDriver.FindElement(By.XPath(".//*[@href='#Select an Option']"));
@@ -56,43 +57,40 @@ namespace TheICEWebSiteTests
             //foreach (var webElement in loginOptionsList)
             for (int i = 0; i < loginOptionsList.Count; i++)
             {
-                
                 loginSelectBoxWebElement = webDriver.FindElement(By.ClassName("selectbox-options"));
                 IWebElement webElement = loginSelectBoxWebElement.FindElements(By.TagName("a"))[i];
                 string webElementText = webElement.Text;
-                IJavaScriptExecutor javaScriptExecutor = (IJavaScriptExecutor)webDriver;
+                IJavaScriptExecutor javaScriptExecutor = (IJavaScriptExecutor) webDriver;
                 javaScriptExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", webElement);
                 //webElement = webDriver.FindElement(By.LinkText(webElementText));
 
-                
+
                 webElement.Click();
-                
+
                 IReadOnlyCollection<IWebElement> userNameCollection =
                     webDriver.FindElements(By.XPath("//input[(@type='text') and (@placeholder='Username')]"));
                 if (userNameCollection.Count > 0)
                 {
-                    System.Diagnostics.Debug.WriteLine(i+ " >the current text is >>" + webElementText);
+                    System.Diagnostics.Debug.WriteLine(i + " >the current text is >>" + webElementText);
                     IWebElement userNameElement = userNameCollection.ElementAt(0);
                     userNameElement.Clear();
                     userNameElement.SendKeys("abcd");
-                    
+
                     IWebElement passwordElement = webDriver.FindElement(By.XPath("//input[@placeholder='Password']"));
                     passwordElement.Clear();
                     passwordElement.SendKeys("blahblah");
                 }
 
-                
-                selectAnOptionComboElement.Click();
-                
 
+                selectAnOptionComboElement.Click();
             }
             webDriver.Close();
         }
 
 /*        [TestCleanup]
-        public void MyScratchTestCleanup()
-        {
-            
-        }*/
+                        public void MyScratchTestCleanup()
+                        {
+                            
+                        }*/
     }
 }
