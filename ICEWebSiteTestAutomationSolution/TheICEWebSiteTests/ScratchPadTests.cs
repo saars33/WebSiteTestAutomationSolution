@@ -7,6 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
 
@@ -22,15 +23,16 @@ namespace TheICEWebSiteTests
                             
                         }*/
 
+        private static string _s3;
         [TestMethod]
         public void MyFirstScratchTestMethod()
         {
 /*                        FirefoxDriverService ffDriverService =
                                                     FirefoxDriverService.CreateDefaultService(@"C:\Users\Public\AutomationSpecificFolders\sel_resources_go_here");*/
-                        //IWebDriver webDriver = new FirefoxDriver();
+            //IWebDriver webDriver = new FirefoxDriver();
 
-            FirefoxBinary firefoxBinary=new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
-            IWebDriver webDriver = new FirefoxDriver(firefoxBinary,new FirefoxProfile());
+            FirefoxBinary firefoxBinary = new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
+            IWebDriver webDriver = new FirefoxDriver(firefoxBinary, new FirefoxProfile());
 
             /*            ChromeDriverService chromeDriverService =
                             ChromeDriverService.CreateDefaultService(
@@ -39,15 +41,27 @@ namespace TheICEWebSiteTests
 
             webDriver.Navigate().GoToUrl("http://ft.theice.com");
 
-            new WebDriverWait(webDriver, TimeSpan.FromSeconds(3)).Until(ExpectedConditions.TitleIs("ICE"));
+            bool x=new WebDriverWait(webDriver, TimeSpan.FromSeconds(3)).Until(ExpectedConditions.TitleIs("ICE"));
 
+            
             //webDriver.Close();
+            IWebElement loginWebElement = null;
+            try
+            {
+                loginWebElement = webDriver.FindElement(By.XPath("//div/ul[2]/li[1]/abcd"));
+                
+            }
+            catch (Exception)
+            {
+                loginWebElement = webDriver.FindElement(By.XPath("//div/ul[2]/li[1]/a"));
 
-            IWebElement loginWebElement = webDriver.FindElement(By.XPath("//div/ul[2]/li[1]/a"));
-/*            Actions actions = new Actions(webDriver);
-                                                actions.MoveToElement(loginWebElement);
-                                                actions.Perform();*/
+            }
             loginWebElement.Click();
+
+            /*            Actions actions = new Actions(webDriver);
+                                                            actions.MoveToElement(loginWebElement);
+                                                            actions.Perform();*/
+
 
             //IWebElement selectAnOptionComboElement = webDriver.FindElement(By.XPath(".//*[@href='#Select an Option']"));
             IWebElement selectAnOptionComboElement =
@@ -91,10 +105,50 @@ namespace TheICEWebSiteTests
             webDriver.Close();
         }
 
-/*        [TestCleanup]
-                        public void MyScratchTestCleanup()
-                        {
-                            
-                        }*/
+/*        [TestMethod]
+        public void MySecondScratchTestMethod()
+        {
+
+
+            FirefoxBinary firefoxBinary = new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
+            IWebDriver webDriver = new FirefoxDriver(firefoxBinary, new FirefoxProfile());
+            webDriver.Navigate().GoToUrl("http://ft.theice.com");
+            webDriver= new  FirefoxDriver(firefoxBinary, new FirefoxProfile());
+            webDriver.Navigate().GoToUrl("http://www.msn.com");
+            _s3 = webDriver.CurrentWindowHandle;
+            webDriver = new FirefoxDriver(firefoxBinary, new FirefoxProfile());
+            webDriver.Navigate().GoToUrl("http://www.yahoo.com");
+            _s3 = webDriver.WindowHandles.First();
+            //webDriver.SwitchTo().Window(s1);
+            webDriver.SwitchTo().Window(_s3);
+
+            System.Uri uri = new System.Uri("http://localhost:7055/hub");
+            webDriver = new RemoteWebDriver(uri, DesiredCapabilities.Firefox());
+            webDriver.SwitchTo().Window(_s3);
+            webDriver.Manage().Window.Maximize();
+        }
+
+        [TestMethod]
+        public void MyThirdScratchTestMethod()
+        {
+
+
+            /*            FirefoxBinary firefoxBinary = new FirefoxBinary(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe");
+                        IWebDriver webDriver = new FirefoxDriver(firefoxBinary, new FirefoxProfile());#1#
+
+            System.Uri uri = new System.Uri("http://localhost:7055/hub");
+            IWebDriver webDriver=new RemoteWebDriver(uri,DesiredCapabilities.Firefox());
+            webDriver.SwitchTo().Window(_s3);
+            
+            //IReadOnlyCollection<string> collection = webDriver.WindowHandles;
+           
+
+                System.Diagnostics.Debug.WriteLine(webDriver.Title);
+        }*/
+        /*        [TestCleanup]
+                                public void MyScratchTestCleanup()
+                                {
+
+                                }*/
     }
 }

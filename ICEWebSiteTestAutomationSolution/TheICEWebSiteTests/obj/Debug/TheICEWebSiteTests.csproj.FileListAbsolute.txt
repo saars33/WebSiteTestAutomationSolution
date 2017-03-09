@@ -8,3 +8,13 @@ C:\Users\ARVIND\Microsoft Press\Repos\ICEWebSiteTestAutomationSolution\TheICEWeb
 C:\Users\ARVIND\Microsoft Press\Repos\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\obj\Debug\TheICEWebSiteTests.csprojResolveAssemblyReference.cache
 C:\Users\ARVIND\Microsoft Press\Repos\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\obj\Debug\TheICEWebSiteTests.dll
 C:\Users\ARVIND\Microsoft Press\Repos\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\obj\Debug\TheICEWebSiteTests.pdb
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\bin\Debug\TheICEWebSiteTests.dll
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\bin\Debug\TheICEWebSiteTests.pdb
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\bin\Debug\WebDriver.dll
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\bin\Debug\WebDriver.Support.dll
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\bin\Debug\WebDriver.xml
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\bin\Debug\WebDriver.Support.xml
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\obj\Debug\TheICEWebSiteTests.csprojResolveAssemblyReference.cache
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\obj\Debug\TheICEWebSiteTests.dll
+C:\Users\Public\AutomationSpecificFolders\WebSiteAuto\ICEWebSiteTestAutomationSolution\TheICEWebSiteTests\obj\Debug\TheICEWebSiteTests.pdb
