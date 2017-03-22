@@ -1,4 +1,40 @@
-﻿TEST Automation plan:
+﻿Start framework development and perform refactoring on the following
+	download code from both the Udemy C# selenium courses
+	Create driver managers using selenium Java
+	implement base classes looking at the C# courses
+	configuration
+	**implement page objects
+	implement logging
+	implement dump hardcoded data to excel and implement excel helpers
+	//TODO: 
+
+
+Create Login testcases for the following
+**4 >the current text is >>Order Cancel / User Logout
+5 >the current text is >>Invoices
+6 >the current text is >>Broker Reconciliation
+8 >the current text is >>Position Report
+9 >the current text is >>Position Summary Rpt
+10 >the current text is >>Deal Reports
+11 >the current text is >>ACE
+12 >the current text is >>Clearing Admin
+13 >the current text is >>Credit Management
+16 >the current text is >>OCR
+17 >the current text is >>Member Volumes
+18 >the current text is >>Message Volumes
+19 >the current text is >>REMIT Reporting
+20 >the current text is >>Clear EU Dashboard
+21 >the current text is >>Clear US Dashboard
+22 >the current text is >>Trader Dashboard
+
+
+            UserNameWebElement.Clear();
+            UserNameWebElement.SendKeys("Lrobinson_prod");
+
+            PasswordWebElement.Clear();
+            PasswordWebElement.SendKeys("Starts123");
+
+TEST Automation plan:
 
 *Create a sample VSTS test class
 
@@ -27,3 +63,5 @@ Start framework development and perform refactoring on the followin
 	dump hardcoded data to excel and implement excel helpers
 	
 C:\Users\ARVIND\selenium_resources_go_here	
+
+
