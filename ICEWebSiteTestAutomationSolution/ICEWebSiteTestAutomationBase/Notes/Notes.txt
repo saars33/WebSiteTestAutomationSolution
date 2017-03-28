@@ -1,6 +1,6 @@
 ﻿Start framework development and perform refactoring on the following
-	download code from both the Udemy C# selenium courses
-	Create driver managers using selenium Java
+	**download code from both the Udemy C# selenium courses
+	*Create driver managers using selenium Java 
 	implement base classes looking at the C# courses
 	configuration
 	**implement page objects

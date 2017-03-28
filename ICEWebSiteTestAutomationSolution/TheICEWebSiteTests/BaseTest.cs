@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ICEWebSiteTestAutomationBase.Pages;
+﻿using ICEWebSiteTestAutomationBase.Pages;
+using ICEWebSiteTestAutomationBase.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
-//todo: download the C# udemy courses
+//todo: Refactor the login methods to use enums
+//todo: learn more about internal methods
+//TODO: Create driver managers using selenium Java (partially done)
 //TODO: implement base classes looking at the C# courses
-//TODO: Create driver managers using selenium Java
-//Todo: Refactor testcases with the new driver manager class
-//Todo: Refactor testcases with the new driver manager class
 //TODO: configuration and putting the driver.exe files within the project
 
 //TODO: implement logging
@@ -27,8 +21,9 @@ namespace TheICEWebSiteTests
 {
     public class BaseTest
     {
-        protected IWebDriver WebDriver;
         protected TheIceHomePage TheIceHomePage;
+        protected IWebDriver WebDriver;
+
         [TestInitialize]
         public void TestInitializeMethod()
         {
@@ -42,28 +37,21 @@ namespace TheICEWebSiteTests
                         _webDriver = new FirefoxDriver(firefoxBinary, new FirefoxProfile());
             */
 
-            ChromeDriverService chromeDriverService =
+            /*ChromeDriverService chromeDriverService =
                             ChromeDriverService.CreateDefaultService(
-                                @"C:\Users\Public\AutomationSpecificFolders\sel_resources_go_here");
+                                @"C:\Users\Public\AutomationSpecificFolders\sel_resources_go_here");*/
 
-            WebDriver = new ChromeDriver(chromeDriverService);
+            WebDriver = Driver.Get();
 
 
             TheIceHomePage = new TheIceHomePage(WebDriver);
             TheIceHomePage.Load();
-
-
-
-
-
         }
 
         [TestCleanup]
         public void TestCleanup()
         {
-            //WebDriver.Quit();
+            WebDriver.Quit();
         }
-
-
     }
 }

@@ -6,18 +6,23 @@ namespace ICEWebSiteTestAutomationBase.Pages
 {
     public class PositionReportPage : BasePage<PositionReportPage>
     {
-        private IWebDriver _webDriver;
         private IWebElement _positionReportTitleWebElement;
-
-        private IWebElement PositionReportTitleWebElement
-        {
-            get { return _positionReportTitleWebElement?? (_positionReportTitleWebElement=_webDriver.FindElement(By.XPath("//*[text()='POSITION REPORT']"))); }
-            set { _positionReportTitleWebElement = value; }
-        }
+        private readonly IWebDriver _webDriver;
 
         public PositionReportPage(IWebDriver webDriver)
         {
-            this._webDriver = webDriver;
+            _webDriver = webDriver;
+        }
+
+        private IWebElement PositionReportTitleWebElement
+        {
+            get
+            {
+                return _positionReportTitleWebElement ??
+                       (_positionReportTitleWebElement =
+                           _webDriver.FindElement(By.XPath("//*[text()='POSITION REPORT']")));
+            }
+            set { _positionReportTitleWebElement = value; }
         }
 
         #region Overrides of LoadableComponent<PositionReportPage>
@@ -25,7 +30,8 @@ namespace ICEWebSiteTestAutomationBase.Pages
         /// <inheritdoc />
         protected override void ExecuteLoad()
         {
-            new WebDriverWait(_webDriver, TimeSpan.FromSeconds(5)).Until(ExpectedConditions.TitleIs("ICE: Position Report"));
+            new WebDriverWait(_webDriver, TimeSpan.FromSeconds(5)).Until(
+                ExpectedConditions.TitleIs("ICE: Position Report"));
         }
 
         /// <inheritdoc />

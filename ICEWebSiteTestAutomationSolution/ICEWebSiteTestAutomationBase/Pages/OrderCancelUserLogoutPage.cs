@@ -9,6 +9,11 @@ namespace ICEWebSiteTestAutomationBase.Pages
         private readonly IWebDriver _webDriver;
         private IWebElement _orderCancelUserLogoutLabelWebElement;
 
+        public OrderCancelUserLogoutPage(IWebDriver webDriver)
+        {
+            _webDriver = webDriver;
+        }
+
         private IWebElement OrderCancelUserLogoutLabelWebElement
         {
             get
@@ -20,30 +25,20 @@ namespace ICEWebSiteTestAutomationBase.Pages
             set { _orderCancelUserLogoutLabelWebElement = value; }
         }
 
-        public OrderCancelUserLogoutPage(IWebDriver webDriver)
-        {
-            this._webDriver = webDriver;
-        }
-
         #region Overrides of LoadableComponent<OrderCancelUserLogoutPage>
 
         /// <inheritdoc />
         protected override void ExecuteLoad()
         {
-            new WebDriverWait(_webDriver, TimeSpan.FromSeconds(5)).Until(ExpectedConditions.TitleIs("ICE Logout"));
-
+            new WebDriverWait(_webDriver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.TitleIs("ICE Logout"));
         }
 
         /// <inheritdoc />
         protected override bool EvaluateLoadedStatus()
         {
-
             return OrderCancelUserLogoutLabelWebElement.Displayed;
-
         }
 
         #endregion
-
-
     }
 }
